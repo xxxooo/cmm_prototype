@@ -1,13 +1,15 @@
-extends ./templates/layout.jade
+extends ./templates/layout/layout.pug
 
 block styles_and_scripts
-  include ./templates/styles_and_scripts.jade
+  include ./templates/layout/styles_and_scripts.pug
 
 block bottom_scripts
-  include ./templates/bottom_scripts.jade
+  include ./templates/layout/bottom_scripts.pug
 
 block title
-  title My Page Title
+  title CMM prototype 02
 
 block content
-  h1 My Page Content
+  include ./templates/index/header.pug
+  include ./templates/index/main.pug
+  include ./templates/index/footer.pug
