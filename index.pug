@@ -1,10 +1,10 @@
-extends ./templates/layout/layout.pug
+extends ./templates/layout.pug
 
 block styles_and_scripts
-  include ./templates/layout/styles_and_scripts.pug
+  include ./templates/styles_and_scripts.pug
 
 block bottom_scripts
-  include ./templates/layout/bottom_scripts.pug
+  script(src="js/index.js")
 
 block title
   title CMM prototype 02
