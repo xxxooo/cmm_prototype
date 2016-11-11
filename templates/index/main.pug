@@ -1,3 +1,5 @@
+//- declaration
+//- carousel輪播的分頁項目
 mixin carousel_slide(slide_data)
   .carousel-item.white-text(style="background-image:url('" + slide_data.photo + "')")
     .carousel-teaser-wrapper
@@ -5,6 +7,7 @@ mixin carousel_slide(slide_data)
         a(href=slide_data.link)= slide_data.title
       h6= slide_data.lead
 
+//- 最新文章卡片
 mixin news_card(card_data)
   .col.m6.l4
     .card.z-depth-0
@@ -16,6 +19,49 @@ mixin news_card(card_data)
         h4.card-title
           a(href=card_data.link)= card_data.title
 
+//- 首頁分類區塊 -> 主打文章 + 熱門列表
+mixin feature_category(cate_data)
+  +section_head(cate_data.name)
+
+  .col.s12.m8
+    .slider
+      ul.slides
+        li
+          img(src=cate_data.feature.photo)
+          .caption.left-align
+            h4= cate_data.feature.title
+  .col.m4
+    //- 要讓過長的標題變成...結尾，使用overflow:hidden
+    //- 於是無法使用 ol 列出項目編號，只好自己用span加入項目編號
+    ul.side-list
+      each term, index in cate_data.list
+        +side_list_item(index+1, term)
+
+//- 首頁分類區塊 -> carousel輪播
+mixin carousel_catagory(cate_data)
+  +section_head(cate_data.name)
+
+  .section-padding
+    .carousel.carousel-slider.center(data-indicators='true')
+      each term in cate_data.list
+        +carousel_slide(term)
+
+//- 區塊標題
+mixin section_head(name)
+  .section-head
+    h3
+      a(href='#')= name
+
+//- 熱門文章列表
+mixin side_list_item(num, data)
+  li.list-item
+    a(href='#')
+      span= num
+      | #{data}
+
+
+//- start page with mixin
+//- 首頁內容開始
 .main-container
   section
     .carousel.carousel-slider.center(data-indicators='true')
@@ -27,222 +73,16 @@ mixin news_card(card_data)
       +news_card(term)
 
   section.category.row
-    .section-head
-      h3
-        a(href='#') 政治新聞
-    .col.s12.m8
-      .slider
-        ul.slides
-          li
-            img(src='../assets/cmm_img/A08a.jpg')
-            .caption.left-align
-              h4 被洪秀柱戳破謊言 馬英九急守一中各表
-    .col.m4
-      ul.side-list
-        li.list-item
-          a(href='#')
-            span 1
-            | 從制約中解放 本土電影不該只有豬哥亮文化
-        li.list-item
-          a(href='#')
-            span 2
-            | 投身蘭陽平原 尋找幽微中的醃漬星光
-        li.list-item
-          a(href='#')
-            span 3
-            | 樺漢國際併購案的歐洲神祕推手 默默當潛水艇等待最好時機再出手
-        li.list-item
-          a(href='#')
-            span 4
-            | 台灣沒有東西南北向問題 只有「開放」的問題
-        li.list-item
-          a(href='#')
-            span 5
-            | 反中火、反台化 24歲的環保尖兵吳慧君
-        li.list-item
-          a(href='#')
-            span 6
-            | 飛上天空 「看見台灣」的美麗與傷痛
-        li.list-item
-          a(href='#')
-            span 7
-            | 台北果菜市場拍賣員決定菜價！ 蘇治芬解構「菜蟲」生態
-        li.list-item
-          a(href='#')
-            span 8
-            | 亞洲紙媒業的共同困境：選擇生存權或自主權？
-        li.list-item
-          a(href='#')
-            span 9
-            | 舊書的第二人生：讓世界變得更美好書店
-        li.list-item
-          a(href='#')
-            span 10
-            | 請問賀陳部長：工期延冗，桃機國門何時不再蒙羞？
+    +feature_category(feature_category01_data)
+
   section.category.row
-    .section-head
-      h3
-        a(href='#') 財經新聞
-    .col.s12.m8
-      .slider
-        ul.slides
-          li
-            img(src='../assets/cmm_img/A07a.jpg')
-            .caption.left-align
-              h4 誤交損友的下場：李奧納多狄卡皮歐捲入大馬洗錢案
-    .col.m4
-      ul.side-list
-        li.list-item
-          a(href='#')
-            span 1
-            | 念完EMBA　吳寶春的下一步：挑戰跨國麵包夢
-        li.list-item
-          a(href='#')
-            span 2
-            | 小英御廚　原來是「陳董」推薦的
-        li.list-item
-          a(href='#')
-            span 3
-            | 杜特蒂總統「拉中遠美」　菲律賓基金值得投資？
-        li.list-item
-          a(href='#')
-            span 4
-            | 金管會新主委處女秀　政治味濃、專業不及格
-        li.list-item
-          a(href='#')
-            span 5
-            | 半導體史上最大併購案　聽聽張忠謀怎麼說
-        li.list-item
-          a(href='#')
-            span 6
-            | 菜霸橫行農產公司　柯文哲人事擺爛釀禍
-        li.list-item
-          a(href='#')
-            span 7
-            | 馬案重啟偵辦　綠委籲將馬限制出境
-        li.list-item
-          a(href='#')
-            span 8
-            | 歷任總統難逃官司纏身
-        li.list-item
-          a(href='#')
-            span 9
-            | 台新金赴日開分行　吳東亮下一步要登陸
-        li.list-item
-          a(href='#')
-            span 10
-            | 把持歐美政商圈的神祕社團　華盛頓、柯林頓都是美生會員
+    +feature_category(feature_category02_data)
+
   section
-    .section-head
-      h3
-        a(href='#') 專欄評論
-    .section-padding
-      .carousel.carousel-slider.center(data-indicators='true')
-        .carousel-item.white-text(href='#one!', style="background-image:url('../assets/cmm_img/A01a.jpg')")
-          .carousel-teaser-wrapper
-            h4
-              a(href='#') 台北果菜市場拍賣員決定菜價！ 蘇治芬解構「菜蟲」生態
-            h6 菜價飆高得不像話，逼得農委會下令追查炒作源頭，意外揭發了台北農產運銷公司重要人事長期以來都由雲林張榮味家族掌控的事實。
-        .carousel-item.white-text(href='#two!', style="background-image:url('../assets/cmm_img/A02a.jpg')")
-          .carousel-teaser-wrapper
-            h4
-              a(href='#') 螞蟻金服整合全方位服務　機器人理財的下一階段已成形
-            h6
-              | 機器人理財（Robo-Advisor）儼然已經成為金融科技最夯的名詞之一，國內外各家金融機構、科技公司前仆後繼推出服務，機器人理財在全球蓬勃發展，以便宜收費吸引剛出社會的年輕人使用
-        .carousel-item.white-text(href='#three!', style="background-image:url('../assets/cmm_img/A03a.jpg')")
-          .carousel-teaser-wrapper
-            h4
-              a(href='#') 中國強拆佛教寺院 台藏人權團體「撐西藏」
-            h6 位於四川省甘孜州色達縣的喇榮五明佛學院，是目前世界上最大的佛教寺院群，由堪布晉美彭措在1980年代所設立
-        .carousel-item.white-text(href='#four!', style="background-image:url('../assets/cmm_img/A04a.jpg')")
-          .carousel-teaser-wrapper
-            h4
-              a(href='#') 亞洲紙媒業的共同困境：選擇生存權或自主權？
-            h6 擁有新加坡海峽時報的新加坡報業控股公司，近年來正面臨報紙廣告收入減少以及流通量下滑的困境
-    .center
-      h6
-        a.waves-effect.waves-purple.btn.kikyo-lite.z-depth-0 看更多...
+    +carousel_catagory(carousel_catagory01_data)
+
   section
-    .section-head
-      h3
-        a(href='#') 專題報導
-    .section-padding
-      .carousel.carousel-slider.center(data-indicators='true')
-        .carousel-item.white-text(href='#one!', style="background-image:url('../assets/cmm_img/A01a.jpg')")
-          .carousel-teaser-wrapper
-            h4
-              a(href='#') 台北果菜市場拍賣員決定菜價！ 蘇治芬解構「菜蟲」生態
-            h6 菜價飆高得不像話，逼得農委會下令追查炒作源頭，意外揭發了台北農產運銷公司重要人事長期以來都由雲林張榮味家族掌控的事實。
-        .carousel-item.white-text(href='#two!', style="background-image:url('../assets/cmm_img/A02a.jpg')")
-          .carousel-teaser-wrapper
-            h4
-              a(href='#') 螞蟻金服整合全方位服務　機器人理財的下一階段已成形
-            h6
-              | 機器人理財（Robo-Advisor）儼然已經成為金融科技最夯的名詞之一，國內外各家金融機構、科技公司前仆後繼推出服務，機器人理財在全球蓬勃發展，以便宜收費吸引剛出社會的年輕人使用
-        .carousel-item.white-text(href='#three!', style="background-image:url('../assets/cmm_img/A03a.jpg')")
-          .carousel-teaser-wrapper
-            h4
-              a(href='#') 中國強拆佛教寺院 台藏人權團體「撐西藏」
-            h6 位於四川省甘孜州色達縣的喇榮五明佛學院，是目前世界上最大的佛教寺院群，由堪布晉美彭措在1980年代所設立
-        .carousel-item.white-text(href='#four!', style="background-image:url('../assets/cmm_img/A04a.jpg')")
-          .carousel-teaser-wrapper
-            h4
-              a(href='#') 亞洲紙媒業的共同困境：選擇生存權或自主權？
-            h6 擁有新加坡海峽時報的新加坡報業控股公司，近年來正面臨報紙廣告收入減少以及流通量下滑的困境
-    .center
-      h6
-        a.waves-effect.waves-purple.btn.kikyo-lite.z-depth-0 看更多...
+    +carousel_catagory(carousel_catagory02_data)
+
   section.category.row
-    .section-head
-      h3
-        a(href='#') 生活
-    .col.s12.m8
-      .slider
-        ul.slides
-          li
-            img(src='../assets/cmm_img/A08a.jpg')
-            .caption.left-align
-              h4 被洪秀柱戳破謊言 馬英九急守一中各表
-    .col.m4
-      ul.side-list
-        li.list-item
-          a(href='#')
-            span 1
-            | 從制約中解放 本土電影不該只有豬哥亮文化
-        li.list-item
-          a(href='#')
-            span 2
-            | 投身蘭陽平原 尋找幽微中的醃漬星光
-        li.list-item
-          a(href='#')
-            span 3
-            | 樺漢國際併購案的歐洲神祕推手 默默當潛水艇等待最好時機再出手
-        li.list-item
-          a(href='#')
-            span 4
-            | 台灣沒有東西南北向問題 只有「開放」的問題
-        li.list-item
-          a(href='#')
-            span 5
-            | 反中火、反台化 24歲的環保尖兵吳慧君
-        li.list-item
-          a(href='#')
-            span 6
-            | 飛上天空 「看見台灣」的美麗與傷痛
-        li.list-item
-          a(href='#')
-            span 7
-            | 台北果菜市場拍賣員決定菜價！ 蘇治芬解構「菜蟲」生態
-        li.list-item
-          a(href='#')
-            span 8
-            | 亞洲紙媒業的共同困境：選擇生存權或自主權？
-        li.list-item
-          a(href='#')
-            span 9
-            | 舊書的第二人生：讓世界變得更美好書店
-        li.list-item
-          a(href='#')
-            span 10
-            | 請問賀陳部長：工期延冗，桃機國門何時不再蒙羞？
-            
+    +feature_category(feature_category03_data)

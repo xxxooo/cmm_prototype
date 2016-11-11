@@ -175,6 +175,36 @@ footer .list-item {
   background: rgba(0, 0, 0, 0.1);
 }
 
+.icons {
+  background-size: 100%;
+  display: inline-block;
+  height: 36px;
+  width: 36px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.social-links .icons {
+  margin: 8px;
+}
+
+.social-facebook {
+  background-image: url(../../assets/cmm_img/svg/facebook-i.svg);
+}
+
+.social-twitter {
+  background-image: url(../../assets/cmm_img/svg/twitter-i.svg);
+}
+
+.social-google-plus {
+  background-image: url(../../assets/cmm_img/svg/google-plus-i.svg);
+}
+
+.social-line {
+  background-image: url(../../assets/cmm_img/svg/line-i.svg);
+}
+
 @media only screen and (min-width: 1280px) {
   .carousel-item {
     background-size: 100% auto;
