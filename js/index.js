@@ -1,8 +1,8 @@
 $('.carousel.carousel-slider').carousel({full_width: true, dist: 0});
-$('.slider').slider({indicators: false, height: 448});
+$('.slider').slider({indicators: false, height: 518});
 
 setInterval(function(){
-  $('.carousel.carousel-slider').carousel('next');
+  //$('.carousel.carousel-slider').carousel('next');
 }, 5500);
 
 $('.card').hover(

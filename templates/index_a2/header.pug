@@ -1,24 +1,28 @@
+//- declaration
+mixin main_menu_term(term_data)
+  li
+    a.wline(href=term_data.link)
+      span= term_data.name
+      br
+      span.font-optima= term_data.eng
+
+//- in use
 header.navbar-fixed
-  nav.kikyo
+  nav.tan-lite.z-depth-0
     .nav-wrapper
       a.brand-logo(href='#')
         img.responsive-img(src='../assets/cmm_img/midea_logo_n64.png')
       a.button-collapse(href='#', data-activates='mobile-demo')
         i.material-icons menu
       ul#nav-mobile.hide-on-med-and-down.main-menu
-        li
-          a(href='catagory1.html') 政治新聞
-        li
-          a(href='catagory2.html') 財經新聞
-        li
-          a(href='catagory3.html') 專欄評論
-        li
-          a(href='catagory4.html') 專題報導
-        li
-          a(href='catagory5.html') 生活品味
+        li.placeholder
+
+        each category in categories_data
+          +main_menu_term(category)
+
         li
           a(href='#')
             i.material-icons search
       ul.right.hide-on-med-and-down
         li
-          a.waves-effect.waves-purple.btn.kikyo-lite.z-depth-0 登入
+          a.waves-effect.btn.tan-liter.z-depth-0 登入

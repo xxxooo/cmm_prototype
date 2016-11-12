@@ -15,13 +15,9 @@ a {
   margin: 0 12px;
 }
 
+.nav-wrapper,
 .main-container {
-  max-width: 1280px;
-  margin: auto;
-}
-
-.nav-wrapper {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -44,7 +40,7 @@ a {
 }
 
 .carousel.carousel-slider {
-  height: 672px;
+  height: 800px;
 }
 
 .carousel-item {
@@ -205,9 +201,15 @@ footer .list-item {
   background-image: url(../../assets/cmm_img/svg/line-i.svg);
 }
 
-@media only screen and (min-width: 1280px) {
-  .carousel-item {
-    background-size: 100% auto;
+@media only screen and (max-width: 1280px) {
+  .nav-wrapper,
+  .main-container {
+    max-width: 960px;
+    margin: auto;
+  }
+
+  .carousel.carousel-slider {
+    height: 640px;
   }
 }
 

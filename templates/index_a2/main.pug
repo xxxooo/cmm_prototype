@@ -1,0 +1,107 @@
+//- declaration
+//- carousel輪播的分頁項目
+mixin carousel_slide(slide_data)
+  .carousel-item.white-text(style="background-image:url('" + slide_data.photo + "')")
+    .carousel-teaser-wrapper
+      h4
+        a(href=slide_data.link)= slide_data.title
+      h6= slide_data.lead
+
+//- 最新文章卡片
+mixin news_card(card_data)
+  .col.m6.l4
+    .card.tan-liter.z-depth-0
+      .card-image
+        img(src=card_data.photo)
+      .card-content
+        .card-category
+          a.waves-effect.waves-light.btn.tan.z-depth-0= card_data.category
+        h4.card-title
+          a(href=card_data.link)= card_data.title
+
+//- 首頁分類區塊 -> 主打文章 + 熱門列表
+mixin feature_category(head_data, cate_data)
+  +section_head(head_data)
+
+  .row
+    .col.s12.m8
+      .slider
+        ul.slides
+          li
+            img(src=cate_data.feature.photo)
+            .caption.left-align
+              h4= cate_data.feature.title
+    .col.m4
+      .font-optima
+        h5.popular.warm-grey-text Most Popular
+      //- 要讓過長的標題變成...結尾，使用overflow:hidden
+      //- 於是無法使用 ol 列出項目編號，只好自己用span加入項目編號
+      ul.side-list
+        each term, index in cate_data.list
+          +side_list_item(index+1, term)
+  .read-more.center.font-optima.warm-grey-text
+    a(href=head_data.link) read more...
+
+//- 首頁分類區塊 -> carousel輪播
+mixin carousel_catagory(head_data, list_data)
+  +section_head(head_data)
+
+  .oval-wrapper
+    .back-oval
+    .carousel-wrapper
+      .carousel.carousel-slider.center(data-indicators='true')
+        each term in list_data
+          +carousel_slide(term)
+      .move-prev
+      .move-next
+
+    .read-more.center.font-optima.warm-grey-text
+      a(href=head_data.link) read more...
+
+//- 區塊標題
+mixin section_head(head_data)
+  .section-head
+    .head-circle.tan-liter
+      .tan
+    h3
+      .backline.tan-text.font-optima= head_data.eng
+      a.warm-grey-text(href=head_data.link)= head_data.name
+
+//- 熱門文章列表
+mixin side_list_item(num, data)
+  li.list-item
+    a(href='#')
+      span.warm-grey-text= num
+      | #{data}
+
+
+//- start page with mixin
+//- 首頁內容開始
+.main-container
+  section.oval-wrapper
+    .back-oval
+    .carousel-wrapper
+      .carousel.carousel-slider.center(data-indicators='true')
+        each term in carousel_slides_data
+          +carousel_slide(term)
+      .move-prev
+      .move-next
+
+  section.row.new-articles
+    each term in news_cards_data
+      +news_card(term)
+
+  section
+    +feature_category(categories_data[0], feature_category01_data)
+
+  section
+    +feature_category(categories_data[1], feature_category02_data)
+
+  section
+    +carousel_catagory(categories_data[2], carousel_catagory01_data)
+
+  section
+    +carousel_catagory(categories_data[3], carousel_catagory02_data)
+
+  section
+    +feature_category(categories_data[4], feature_category03_data)
