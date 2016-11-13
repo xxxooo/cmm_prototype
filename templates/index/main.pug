@@ -15,13 +15,13 @@ mixin news_card(card_data)
         img(src=card_data.photo)
       .card-content
         .card-category
-          a.waves-effect.waves-light.btn.z-depth-0.kikyo= card_data.category
+          a.waves-effect.waves-light.btn.z-depth-0.tan= card_data.category
         h4.card-title
           a(href=card_data.link)= card_data.title
 
 //- 首頁分類區塊 -> 主打文章 + 熱門列表
-mixin feature_category(cate_data)
-  +section_head(cate_data.name)
+mixin feature_category(head_data, cate_data)
+  +section_head(head_data)
 
   .col.s12.m8
     .slider
@@ -38,19 +38,18 @@ mixin feature_category(cate_data)
         +side_list_item(index+1, term)
 
 //- 首頁分類區塊 -> carousel輪播
-mixin carousel_catagory(cate_data)
-  +section_head(cate_data.name)
+mixin carousel_catagory(head_data, list_data)
+  +section_head(head_data)
 
-  .section-padding
-    .carousel.carousel-slider.center(data-indicators='true')
-      each term in cate_data.list
-        +carousel_slide(term)
+  .carousel.carousel-slider.center(data-indicators='true')
+    each term in list_data
+      +carousel_slide(term)
 
 //- 區塊標題
-mixin section_head(name)
-  .section-head
+mixin section_head(head_data)
+  .section-head.warm-grey-text
     h3
-      a(href='#')= name
+      a(href=head_data.link)= head_data.name
 
 //- 熱門文章列表
 mixin side_list_item(num, data)
@@ -72,17 +71,17 @@ mixin side_list_item(num, data)
     each term in news_cards_data
       +news_card(term)
 
-  section.category.row
-    +feature_category(feature_category01_data)
+  section.row
+    +feature_category(categories_data[0], feature_category01_data)
 
-  section.category.row
-    +feature_category(feature_category02_data)
-
-  section
-    +carousel_catagory(carousel_catagory01_data)
+  section.row
+    +feature_category(categories_data[1], feature_category02_data)
 
   section
-    +carousel_catagory(carousel_catagory02_data)
+    +carousel_catagory(categories_data[2], carousel_catagory01_data)
 
-  section.category.row
-    +feature_category(feature_category03_data)
+  section
+    +carousel_catagory(categories_data[3], carousel_catagory02_data)
+
+  section.row
+    +feature_category(categories_data[4], feature_category03_data)
