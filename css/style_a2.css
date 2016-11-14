@@ -1,27 +1,31 @@
 .tan {
-  background-color: #cdb49d !important;
+  background-color: #c1a791 !important;
 }
 
 .tan-text {
-  color: #cdb49d !important;
+  color: #c1a791 !important;
 }
 
 .tan-lite {
-  color: #41384e !important;
-  background-color: #e1d1c5 !important;
+  color: #3d3b48 !important;
+  background-color: #d2c2b6 !important;
 }
 
 .tan-liter {
-  color: #41384e !important;
-  background-color: #f8f4f0 !important;
+  color: #3d3b48 !important;
+  background-color: #ecebea !important;
+}
+
+.tan-liter-text {
+  color: #ecebea !important;
 }
 
 .warm-grey {
-  background-color: #41384e !important;
+  background-color: #3d3b48 !important;
 }
 
 .warm-grey-text {
-  color: #41384e !important;
+  color: #3d3b48 !important;
 }
 
 .font-optima {
@@ -29,7 +33,7 @@
 }
 
 body {
-  background: #e1d1c5;
+  background: #d2c2b6;
 }
 
 a {
@@ -174,13 +178,14 @@ a {
 
 .section-head {
   text-align: center;
+  margin-top: 60px;
 }
 
 .section-head .head-circle {
-  width: 60px;
-  height: 60px;
+  width: 66px;
+  height: 66px;
   border-radius: 50%;
-  margin: 60px auto;
+  margin: auto;
   padding: 12px;
 }
 
@@ -190,14 +195,27 @@ a {
   border-radius: 50%;
 }
 
+.section-head .v-line {
+  width: 2px;
+  height: 66px;
+  margin: 12px auto 32px auto;
+}
+
 .section-head .backline {
-  font-size: 2.2em;
-  text-decoration: underline;
+  font-size: 2.5em;
 }
 
 .section-head h3 a {
   position: relative;
   top: -40px;
+}
+
+.section-head .h-line {
+  width: 320px;
+  height: 2px;
+  margin: auto;
+  position: relative;
+  top: 30px;
 }
 
 .card-category {
@@ -275,7 +293,7 @@ footer .list-item {
 }
 
 .footer-padding {
-  padding: 48px 12px;
+  padding: 88px 12px;
   margin-top: 60px;
   text-align: center;
 }
@@ -286,10 +304,18 @@ footer .list-item {
 }
 
 .footer-list {
-  max-width: 640px;
   margin: auto;
   color: #FFF;
   text-align: center;
+  border-left: 1px solid #ecebea;
+  border-right: 1px solid #ecebea;
+}
+
+footer .block-label {
+  text-align: left;
+  font-size: 1.8em;
+  font-weight: 300;
+  margin-left: 28px;
 }
 
 .divider-line {
@@ -314,7 +340,7 @@ footer .list-item {
 }
 
 .social-links .icons {
-  margin: 8px;
+  margin: 12px;
   opacity: 0.75;
 }
 

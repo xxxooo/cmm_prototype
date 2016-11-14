@@ -10,12 +10,12 @@ mixin carousel_slide(slide_data)
 //- 最新文章卡片
 mixin news_card(card_data)
   .col.m6.l4
-    .card.tan-liter.z-depth-0
+    .card.tan-lite.z-depth-0
       .card-image
         img(src=card_data.photo)
       .card-content
         .card-category
-          a.waves-effect.waves-light.btn.tan.z-depth-0= card_data.category
+          a.waves-effect.waves-light.btn.warm-grey.z-depth-0= card_data.category
         h4.card-title
           a(href=card_data.link)= card_data.title
 
@@ -61,10 +61,13 @@ mixin carousel_catagory(head_data, list_data)
 //- 區塊標題
 mixin section_head(head_data)
   .section-head
-    .head-circle.tan-liter
-      .tan
+    .head-pattern
+      .head-circle.tan-liter
+        .tan
+      .v-line.tan-liter
     h3
       .backline.tan-text.font-optima= head_data.eng
+      .h-line.tan
       a.warm-grey-text(href=head_data.link)= head_data.name
 
 //- 熱門文章列表

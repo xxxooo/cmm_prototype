@@ -15,7 +15,7 @@
     {"name": "財經新聞", "eng": "Finance", "link": "#"},
     {"name": "專欄評論", "eng": "Column", "link": "#"},
     {"name": "專題報導", "eng": "Topic", "link": "#"},
-    {"name": "生活品味", "eng": "Lifestyle", "link": "#"}
+    {"name": "生活品味", "eng": "Life", "link": "#"}
   ],
 
   "carousel_slides_data": [
