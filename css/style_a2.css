@@ -40,6 +40,14 @@ a {
   color: inherit;
 }
 
+header nav .left-line {
+  position: absolute;
+  width: 40%;
+  height: 1px;
+  left: 0;
+  top: 64px;
+}
+
 .brand-logo {
   margin: 0 12px;
 }
@@ -84,6 +92,16 @@ a {
   line-height: 18px;
   padding: 14px 15px;
   text-align: center;
+}
+
+.nav-wrapper ul.main-menu .polyline-end {
+  border-bottom: none;
+  background-image: url('../../assets/cmm_img/svg/polyline-end.svg');
+  width: 30px;
+  height: 22px;
+  position: relative;
+  top: 58px;
+  left: -5px;
 }
 
 .oval-wrapper {
