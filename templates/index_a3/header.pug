@@ -1,0 +1,41 @@
+//- declaration
+//- carousel輪播的分頁項目
+mixin carousel_slide(slide_data)
+  .carousel-item.white-text(style="background-image:url('" + slide_data.photo + "')")
+    .carousel-teaser-wrapper
+      h4
+        a(href=slide_data.link)= slide_data.title
+      h6= slide_data.lead
+
+mixin main_menu_term(term_data)
+  li
+    a.wline(href=term_data.link)
+      span= term_data.name
+      br
+      span.font-optima= term_data.eng
+
+//- in use
+header.triback00
+  .main-container
+    .logo-area
+      a.brand-logo(href='#')
+        img(src='../assets/cmm_img/cmm_logo03.svg')
+      .block
+        .icon-slash
+      a.block(href='#')
+        i.material-icons.small person_outline
+      a.block(href='#')
+        i.material-icons.small search
+
+    .carousel-wrapper
+      .carousel.carousel-slider.center(data-indicators='true')
+        each term in carousel_slides_data
+          +carousel_slide(term)
+
+
+    nav.white.z-depth-0
+      .nav-wrapper
+        ul#nav-mobile.hide-on-med-and-down.main-menu
+
+          each category in categories_data
+            +main_menu_term(category)
