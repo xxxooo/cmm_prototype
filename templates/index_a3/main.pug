@@ -21,8 +21,7 @@ mixin news_card(card_data)
 
 //- 首頁分類區塊 -> 主打文章 + 熱門列表
 mixin feature_category(head_data, cate_data)
-  .top-spacer
-  .row
+  .feature-cate.row
     .col.s12.m7
       +section_head(head_data)
       .slider
@@ -32,15 +31,15 @@ mixin feature_category(head_data, cate_data)
             .caption.left-align
               h4= cate_data.feature.title
     .col.m5
-      .font-optima
-        h5.popular.warm-grey-text Most Popular
+      .side-list-head.font-optima
+        .popular.warm-grey-text Most Popular
+        .read-more.warm-grey-text
+          a(href=head_data.link) read more...
       //- 要讓過長的標題變成...結尾，使用overflow:hidden
       //- 於是無法使用 ol 列出項目編號，只好自己用span加入項目編號
       ul.side-list
         each term, index in cate_data.list
           +side_list_item(index+1, term)
-      .read-more.font-optima.warm-grey-text
-        a(href=head_data.link) read more...
 
 //- 首頁分類區塊 -> carousel輪播
 mixin carousel_catagory(head_data, list_data)
@@ -71,7 +70,7 @@ mixin section_head(head_data, class_name1, class_name2)
       .v-line(class=class_name2)
     h3
       .backline.font-optima(class=class_name1+"-text")= head_data.eng
-      .h-line(class=class_name2)
+      .h-line(class=class_name1)
       a.warm-grey-text(href=head_data.link)= head_data.name
 
 //- 熱門文章列表
