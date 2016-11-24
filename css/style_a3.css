@@ -32,6 +32,10 @@
   font-family: Optima;
 }
 
+body {
+  font-family: Hoefler Text, Songti TC, serif;
+}
+
 a {
   color: inherit;
 }
@@ -114,7 +118,7 @@ a {
 }
 
 .logo-area {
-  padding-top: 32px;
+  padding-top: 24px;
   line-height: 0;
 }
 
@@ -124,7 +128,7 @@ a {
 }
 
 .brand-logo {
-  width: 320px;
+  width: 282px;
   margin: 0 12px;
 }
 
@@ -177,14 +181,10 @@ section > .main-container {
   text-align: center;
 }
 
-.oval-wrapper {
-  position: relative;
-  margin: 36px auto;
-}
-
 .carousel-wrapper {
-  height: 800px;
-  margin: 24px auto;
+  width: 960px;
+  height: 640px;
+  margin: 12px auto;
 }
 
 .fillholder {
@@ -203,11 +203,16 @@ section > .main-container {
   background-repeat: no-repeat;
 }
 
+.carousel-item h4 {
+  font-size: 2rem;
+}
+
 .carousel-teaser-wrapper {
   max-width: 80%;
   margin: auto;
   position: relative;
-  top: 75%;
+  top: 89%;
+  transform: translateY(-100%);
   background: rgba(210,194,182,.75);
   padding: 1px 1px 12px 1px;
   color: #000000;
@@ -418,23 +423,23 @@ footer .block-label {
 }
 
 .social-facebook {
-  background-image: url(../../assets/svg/social_facebook.svg);
+  background-image: url(../../assets/svg/icon_facebook.svg);
 }
 
 .social-twitter {
-  background-image: url(../../assets/svg/social_twitter.svg);
+  background-image: url(../../assets/svg/icon_twitter.svg);
 }
 
 .social-google-plus {
-  background-image: url(../../assets/svg/social_google.svg);
+  background-image: url(../../assets/svg/icon_google_plus.svg);
 }
 
 .social-line {
-  background-image: url(../../assets/svg/social_line.svg);
+  background-image: url(../../assets/svg/icon_line.svg);
 }
 
 .social-rss {
-  background-image: url(../../assets/svg/social_rss.svg);
+  background-image: url(../../assets/svg/icon_rss.svg);
 }
 
 .subscribe {
@@ -450,11 +455,9 @@ footer .block-label {
   padding: 0 8px;
 }
 
-.subscribe .field:focus {
-  border-bottom: 1px solid #333;
-  -webkit-box-shadow: 0 1px 0 0 #333;
-  -moz-box-shadow: 0 1px 0 0 #333;
-  box-shadow: 0 1px 0 0 #333;
+.subscribe input:focus {
+  border-bottom-color: #000 !important;
+     box-shadow: 0 1px 0 0 #000 !important;
 }
 
 .subscribe .submit {
@@ -470,7 +473,7 @@ footer .block-label {
   border: none;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1400px) {
   .nav-wrapper,
   .footer-wrapper,
   .main-container {
@@ -479,7 +482,12 @@ footer .block-label {
   }
 
   .carousel-wrapper {
-    height: 640px;
+    width: 768px;
+    height: 512px;
+  }
+
+  .carousel-item h4 {
+    font-size: 1.75rem;
   }
 }
 
