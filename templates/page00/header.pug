@@ -1,0 +1,33 @@
+//- declaration
+
+mixin main_menu_term(term_data)
+  li
+    a.wline(href=term_data.link)
+      span= term_data.name
+      br
+      span.font-optima= term_data.eng
+
+//- in use
+header.navbar.page
+  nav.z-depth-0
+    .left-line.hide-on-med-and-down
+    .nav-wrapper
+      .logo-area
+        a.brand-logo(href='#')
+          img.responsive-img(src='../assets/cmm_img/cmm_logo04.svg')
+        .block.hide-on-med-and-down
+          .icon-slash
+        a.block.hide-on-med-and-down(href='#')
+          i.material-icons.small person_outline
+        a.block.hide-on-med-and-down(href='#')
+          i.material-icons.small search
+        a.button-collapse(href='#', data-activates='mobile-demo')
+          i.material-icons menu
+
+      ul#nav-mobile.hide-on-med-and-down.main-menu
+        li.placeholder
+
+        each category in categories_data
+          +main_menu_term(category)
+
+        li.polyline-end

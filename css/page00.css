@@ -1,0 +1,61 @@
+header.page > nav {
+  height: 100px;
+  background: #ffffff;
+}
+
+header.page .left-line {
+  position: absolute;
+  width: 40%;
+  height: 1px;
+  left: 0;
+  top: 99px;
+  background: #000000;
+}
+
+header.page .brand-logo {
+  width: 165px;
+  margin-top: 6px;
+  position: relative;
+}
+
+header.page .logo-area {
+  padding-top: 0;
+}
+
+header.page .nav-wrapper {
+  border-bottom: 1px solid #000000;
+}
+
+header.page .nav-wrapper ul.main-menu li {
+  width: auto;
+  height: auto;
+}
+
+header.page .nav-wrapper ul.main-menu li a.wline {
+  font-size: 16px;
+  line-height: 18px;
+  padding: 14px 15px;
+}
+
+header.page .nav-wrapper ul.main-menu {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+header.page .nav-wrapper ul.main-menu .polyline-end {
+  border-bottom: none;
+  background-image: url('../../assets/svg/polyline-end.svg');
+  width: 30px;
+  height: 22px;
+  position: absolute;;
+  top: 59px;
+  right: -25px;
+}
+
+
+@media only screen and (max-width: 992px) {
+  header.page .brand-logo {
+    position: absolute;
+  }
+}
