@@ -577,6 +577,7 @@ footer .block-label {
   .carousel-wrapper {
     height: 400px;
   }
+
   .button-collapse-small {
     display: block;
     position: fixed;
@@ -589,6 +590,11 @@ footer .block-label {
     border-radius: 50%;
     background: rgba(248, 244, 240, .8);
   }
+
+  .side-list-head {
+    margin-top: 36px;
+  }
+
   .infos-list {
     border-left: none;
     border-right: none;
