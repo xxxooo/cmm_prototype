@@ -14,17 +14,24 @@ mixin main_menu_term(term_data)
       br
       span.font-optima= term_data.eng
 
+mixin side_menu_term(term_data)
+  li
+    a(href=term_data.link)
+      span= term_data.name
+      span.font-optima= term_data.eng
+
+
 //- in use
 header.triback00
   .main-container
     .logo-area
       a.brand-logo(href='#')
         img(src='../assets/cmm_img/cmm_logo04.svg')
-      .block
+      .block.hide-on-small-only
         .icon-slash
-      a.block(href='#')
+      a.block.hide-on-small-only(href='#')
         i.material-icons.small person_outline
-      a.block(href='#')
+      a.block.hide-on-small-only(href='#')
         i.material-icons.small search
 
     .carousel-wrapper
@@ -32,10 +39,26 @@ header.triback00
         each term in carousel_slides_data
           +carousel_slide(term)
 
+    a.button-collapse-small(href='#', data-activates='mobile-slide-out')
+      i.material-icons.small menu
+    ul#mobile-slide-out.side-nav
+      li
+        a.brand-logo(href='#')
+          img(src='../assets/cmm_img/cmm_logo04.svg')
+      li
+        a.block(href='#')
+          i.material-icons.small person_outline
+          | 會員登入
+      li
+        a.block(href='#')
+          i.material-icons.small search
+          | 搜尋
+      li.divider
+      each category in categories_data
+        +side_menu_term(category)
 
-    nav.white.z-depth-0
+    nav#nav.white.z-depth-0.hide-on-small-only
       .nav-wrapper
-        ul#nav-mobile.hide-on-med-and-down.main-menu
-
+        ul#nav-mobile.main-menu
           each category in categories_data
             +main_menu_term(category)

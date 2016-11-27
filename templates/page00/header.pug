@@ -1,5 +1,4 @@
 //- declaration
-
 mixin main_menu_term(term_data)
   li
     a.wline(href=term_data.link)
@@ -7,24 +6,47 @@ mixin main_menu_term(term_data)
       br
       span.font-optima= term_data.eng
 
+mixin side_menu_term(term_data)
+  li
+    a(href=term_data.link)
+      span= term_data.name
+      span.font-optima= term_data.eng
+
 //- in use
 header.navbar.page
-  nav.z-depth-0
-    .left-line.hide-on-med-and-down
+  a.button-collapse-mid(href='#', data-activates='mobile-slide-out')
+    i.material-icons.small menu
+  .main-container
+    ul#mobile-slide-out.side-nav
+      li
+        a.brand-logo(href='#')
+          img(src='../assets/cmm_img/cmm_logo04.svg')
+      li
+        a.block(href='#')
+          i.material-icons.small person_outline
+          | 會員登入
+      li
+        a.block(href='#')
+          i.material-icons.small search
+          | 搜尋
+      li.divider
+      each category in categories_data
+        +side_menu_term(category)
+
+  nav.z-depth-0.hide-on-med-and-down
+    .left-line
     .nav-wrapper
       .logo-area
         a.brand-logo(href='#')
           img.responsive-img(src='../assets/cmm_img/cmm_logo04.svg')
-        .block.hide-on-med-and-down
+        .block
           .icon-slash
-        a.block.hide-on-med-and-down(href='#')
+        a.block(href='#')
           i.material-icons.small person_outline
-        a.block.hide-on-med-and-down(href='#')
+        a.block(href='#')
           i.material-icons.small search
-        a.button-collapse(href='#', data-activates='mobile-demo')
-          i.material-icons menu
 
-      ul#nav-mobile.hide-on-med-and-down.main-menu
+      ul#nav-mobile.main-menu
         li.placeholder
 
         each category in categories_data

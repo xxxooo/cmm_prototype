@@ -36,6 +36,11 @@ body {
   font-family: Hoefler Text, Songti TC, serif;
 }
 
+section {
+  overflow: hidden;
+  width: 100%;
+}
+
 a {
   color: inherit;
 }
@@ -117,8 +122,37 @@ a {
   background: #B9D3CF;
 }
 
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 100;
+}
+
+.button-collapse-small {
+  display: none;
+}
+
+.side-nav a {
+  font-size: 18px;
+}
+
+.side-nav a span {
+  margin: auto 8px
+}
+
+.side-nav .brand-logo {
+  width: 218px;
+  height: 120px;
+  margin: auto;
+  padding-top: 12px;
+  padding-bottom: 8px;
+}
+
 .logo-area {
-  padding-top: 24px;
+  padding-top: 12px;
   line-height: 0;
 }
 
@@ -128,7 +162,7 @@ a {
 }
 
 .brand-logo {
-  width: 282px;
+  width: 218px;
   margin: 0 12px;
 }
 
@@ -323,6 +357,11 @@ section > .main-container {
   margin-top: 6px;
 }
 
+.side-list-head .read-more:hover {
+  text-decoration: underline;
+  background: #f8f4f0;
+}
+
 .side-list {
   margin: 0 0 116px 0;
 }
@@ -333,6 +372,7 @@ section > .main-container {
 }
 
 .side-list .list-item:hover {
+  text-decoration: underline;
   background-color: #f8f4f0;
 }
 
@@ -361,7 +401,12 @@ footer {
 
 footer .list-item {
   font-size: 15px;
-  margin: 16px 0px;
+  padding: 12px 0;
+  margin: 0px;
+}
+
+footer .list-item:hover {
+  background-color: #f8f4f0;
 }
 
 .footer-padding {
@@ -371,17 +416,21 @@ footer .list-item {
 .footer-padding .brand-logo {
   display: inline-block;
   margin: 10px auto;
-  width: 90%;
+  width: 84%;
 }
 
-.footer-list {
+.infos-list {
   margin: auto;
   text-align: center;
   border-left: 1px solid #c1a791;
   border-right: 1px solid #c1a791;
 }
 
-.footer-list .col {
+.infos-list .row {
+  margin-top: 16px;
+}
+
+.infos-list .col {
   padding: 0;
 }
 
@@ -416,11 +465,24 @@ footer .block-label {
 
 .social-links .icons {
   margin: 10px;
+
+}
+
+.social-links a {
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   opacity: 0.75;
 }
 
-.social-links .icons:hover {
+.social-links a:hover {
   opacity: 1;
+  background-color: #f8f4f0;
+}
+
+.social-links a:hover .icons {
+
 }
 
 .social-facebook {
@@ -445,14 +507,17 @@ footer .block-label {
 
 .subscribe {
   position: relative;
-  width: 250px;
+  width: 92%;
+  max-width: 266px;
   margin-left: 20px;
 }
 
 .subscribe .field {
   border: 2px solid #333;
   border-radius: 8px;
+  width: 92%;
   height: 36px;
+  line-height: 22px;
   padding: 0 8px;
 }
 
@@ -464,7 +529,7 @@ footer .block-label {
 .subscribe .submit {
   position: absolute;
   top: 4px;
-  right: -8px;
+  right: 6px;
   background-color: #FFFFFF;
   background-image: url(../../assets/svg/envelope.svg);
   background-size: 100%;
@@ -495,5 +560,61 @@ footer .block-label {
 @media only screen and (max-width: 1000px) {
   .row .col.m4 {
     padding: 0;
+  }
+}
+
+@media only screen and (max-width: 766px) {
+  .carousel-wrapper {
+    width: 100%;
+  }
+
+  .carousel-teaser-wrapper {
+    max-width: 88%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .carousel-wrapper {
+    height: 400px;
+  }
+  .button-collapse-small {
+    display: block;
+    position: fixed;
+    top: 4px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    z-index: 101;
+    border-radius: 50%;
+    background: rgba(248, 244, 240, .8);
+  }
+  .infos-list {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid #c1a791;
+    border-bottom: 1px solid #c1a791;
+  }
+
+  .footer-padding {
+    padding: 24px 4px;
+  }
+
+  .footer-padding .brand-logo {
+    display: block;
+    margin: auto;
+    width: 60%;
+    transform: translateX(-8%);
+  }
+
+  footer .block-label {
+    margin-top: 22px;
+  }
+
+  .social-links {
+    text-align: center;
+  }
+  .subscribe {
+    margin: auto;
   }
 }
