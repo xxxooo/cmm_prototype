@@ -1,5 +1,4 @@
 header.page > nav {
-  height: 100px;
   background: #ffffff;
 }
 
@@ -8,12 +7,12 @@ header.page .left-line {
   width: 40%;
   height: 1px;
   left: 0;
-  top: 99px;
+  top: 63px;
   background: #000000;
 }
 
 header.page .brand-logo {
-  width: 165px;
+  width: 100px;
   margin-top: 6px;
   position: relative;
 }

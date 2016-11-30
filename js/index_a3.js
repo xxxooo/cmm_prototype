@@ -15,7 +15,7 @@ $('.card').hover(
 );
 
 // 啟動sideNav
-$(".button-collapse-small").sideNav();
+$(".button-collapse-mid").sideNav();
 
 //stick menu
 var stickyNavTop = $('#nav').offset().top;
@@ -24,9 +24,11 @@ function stickyNav(){
   var scrollTop = $(window).scrollTop();
 
   if (scrollTop > stickyNavTop) {
-    $('#nav').addClass('sticky-nav');
+    $('#nav-wtf').show();
+    //$('#nav').addClass('sticky-nav');
   } else {
-    $('#nav').removeClass('sticky-nav');
+    $('#nav-wtf').hide();
+    //$('#nav').removeClass('sticky-nav');
   }
 }
 

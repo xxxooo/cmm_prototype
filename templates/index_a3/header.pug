@@ -27,11 +27,11 @@ header.triback00
     .logo-area
       a.brand-logo(href='#')
         img(src='../assets/cmm_img/cmm_logo04.svg')
-      .block.hide-on-small-only
+      .block.hide-on-med-and-down
         .icon-slash
-      a.block.hide-on-small-only(href='#')
+      a.block.hide-on-med-and-down(href='#')
         i.material-icons.small person_outline
-      a.block.hide-on-small-only(href='#')
+      a.block.hide-on-med-and-down(href='#')
         i.material-icons.small search
 
     .carousel-wrapper
@@ -39,7 +39,7 @@ header.triback00
         each term in carousel_slides_data
           +carousel_slide(term)
 
-    a.button-collapse-small(href='#', data-activates='mobile-slide-out')
+    a.button-collapse-mid(href='#', data-activates='mobile-slide-out')
       i.material-icons.small menu
     ul#mobile-slide-out.side-nav
       li
@@ -57,8 +57,30 @@ header.triback00
       each category in categories_data
         +side_menu_term(category)
 
-    nav#nav.white.z-depth-0.hide-on-small-only
+    nav#nav.white.z-depth-0.hide-on-med-and-down
       .nav-wrapper
         ul#nav-mobile.main-menu
           each category in categories_data
             +main_menu_term(category)
+
+  header.page.hide-on-med-and-down
+    nav#nav-wtf.z-depth-0
+      .left-line
+      .nav-wrapper
+        .logo-area
+          a.brand-logo(href='#')
+            img.responsive-img(src='../assets/cmm_img/cmm_logo04.svg')
+          .block
+            .icon-slash
+          a.block(href='#')
+            i.material-icons.small person_outline
+          a.block(href='#')
+            i.material-icons.small search
+
+        ul#nav-mobile.main-menu
+          li.placeholder
+
+          each category in categories_data
+            +main_menu_term(category)
+
+          li.polyline-end

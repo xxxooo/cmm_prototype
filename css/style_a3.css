@@ -33,7 +33,7 @@
 }
 
 body {
-  font-family: Hoefler Text, Songti TC, serif;
+  font-family: STHeiti, LiHei Pro, SimHei, Microsoft JhengHei, Microsoft YaHei, sans-serif;
 }
 
 section {
@@ -166,17 +166,13 @@ a {
   margin: 0 12px;
 }
 
-.logo-area a i {
-  font-size: 36px;
-}
-
 .logo-area .block {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
 }
 
 .logo-area a.block {
-  margin: 0 6px;
+  margin: 0 4px;
 }
 
 .icon-slash {
@@ -189,6 +185,13 @@ a {
 
 section > .main-container {
   padding: 1px 0px;
+}
+
+#nav-wtf {
+  display: none;
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
 
 .nav-wrapper,
@@ -311,10 +314,16 @@ section > .main-container {
   font-size: 2.5em;
 }
 
+.section-head h3 {
+  line-height: 48px;
+}
+
 .section-head h3 a {
   position: relative;
   top: -40px;
   margin-left: 3rem;
+  font-family: MSungHK, Hoefler Text, Songti TC, serif;
+  font-weight: bold;
 }
 
 .section-head .h-line {
@@ -340,11 +349,12 @@ section > .main-container {
 }
 
 .side-list-head {
-  margin: 222px 20px 8px 20px;
+  margin: 200px 15px 8px 15px;
 }
 
 .side-list-head > div {
   display: inline-block;
+  line-height: 36px;
 }
 
 .side-list-head .popular {
@@ -367,8 +377,9 @@ section > .main-container {
 }
 
 .side-list .list-item {
-  padding: 12px;
+  padding: 12px 6px;
   font-size: 18px;
+  line-height: 30px;
 }
 
 .side-list .list-item:hover {
@@ -591,6 +602,37 @@ footer .block-label {
     background: rgba(248, 244, 240, .8);
   }
 
+  .section-head .head-pattern {
+    display: none;
+  }
+
+  .triback00 {
+    background: #D2C2B6;
+  }
+  .triback01 {
+    background: #D0C0B7;
+  }
+  .triback02 {
+    background: #F3E7D7;
+  }
+  .triback03 {
+    background: #DBDCDD;
+  }
+  .triback04 {
+    background: #CEE4EB;
+  }
+  .triback05 {
+    background: #F4F4EF;
+  }
+
+  .feature-cate {
+    margin-top: 48px;
+  }
+
+  .side-list {
+    margin-bottom: 36px;
+  }
+
   .side-list-head {
     margin-top: 36px;
   }
@@ -598,8 +640,8 @@ footer .block-label {
   .infos-list {
     border-left: none;
     border-right: none;
-    border-top: 1px solid #c1a791;
-    border-bottom: 1px solid #c1a791;
+    border-top: 2px solid #c1a791;
+    border-bottom: 2px solid #c1a791;
   }
 
   .footer-padding {
@@ -614,6 +656,7 @@ footer .block-label {
   }
 
   footer .block-label {
+    text-align: center;
     margin-top: 22px;
   }
 
