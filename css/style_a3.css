@@ -152,7 +152,7 @@ a {
 }
 
 .logo-area {
-  padding-top: 12px;
+  padding-top: 24px;
   line-height: 0;
 }
 
@@ -162,7 +162,7 @@ a {
 }
 
 .brand-logo {
-  width: 218px;
+  width: 296px;
   margin: 0 12px;
 }
 
@@ -173,6 +173,11 @@ a {
 
 .logo-area a.block {
   margin: 0 4px;
+}
+
+.logo-area a.block .icons {
+  width: 100%;
+  height: 100%;
 }
 
 .icon-slash {
@@ -407,7 +412,7 @@ section > .main-container {
 
 
 footer {
-  border-top: 2px solid #c1a791;
+  border-top: 1px solid #c1a791;
 }
 
 footer .list-item {
@@ -420,14 +425,18 @@ footer .list-item:hover {
   background-color: #f8f4f0;
 }
 
+footer .all-rights {
+  font-size: 12px;
+}
+
 .footer-padding {
   padding: 88px 12px;
 }
 
 .footer-padding .brand-logo {
-  display: inline-block;
+  display: block;
   margin: 10px auto;
-  width: 84%;
+  width: 80%;
 }
 
 .infos-list {
@@ -471,7 +480,7 @@ footer .block-label {
 }
 
 .social-links {
-  margin: 8px 0 12px 12px;
+  margin: 8px 0 8px 12px;
 }
 
 .social-links .icons {
@@ -499,21 +508,23 @@ footer .block-label {
 .social-facebook {
   background-image: url(../../assets/svg/icon_facebook.svg);
 }
-
 .social-twitter {
   background-image: url(../../assets/svg/icon_twitter.svg);
 }
-
 .social-google-plus {
   background-image: url(../../assets/svg/icon_google_plus.svg);
 }
-
 .social-line {
   background-image: url(../../assets/svg/icon_line.svg);
 }
-
 .social-rss {
   background-image: url(../../assets/svg/icon_rss.svg);
+}
+.social-user {
+  background-image: url(../../assets/svg/icon_user.svg);
+}
+.social-search {
+  background-image: url(../../assets/svg/icon_search.svg);
 }
 
 .subscribe {
@@ -527,9 +538,10 @@ footer .block-label {
   border: 2px solid #333;
   border-radius: 8px;
   width: 92%;
-  height: 36px;
+  height: 32px;
   line-height: 22px;
   padding: 0 8px;
+  margin-bottom: 0;
 }
 
 .subscribe input:focus {
@@ -539,9 +551,9 @@ footer .block-label {
 
 .subscribe .submit {
   position: absolute;
-  top: 4px;
-  right: 6px;
-  background-color: #FFFFFF;
+  top: 2px;
+  right: 7px;
+  background-color: transparent;
   background-image: url(../../assets/svg/envelope.svg);
   background-size: 100%;
   color: transparent;
@@ -640,8 +652,8 @@ footer .block-label {
   .infos-list {
     border-left: none;
     border-right: none;
-    border-top: 2px solid #c1a791;
-    border-bottom: 2px solid #c1a791;
+    border-top: 1px solid #c1a791;
+    border-bottom: 1px solid #c1a791;
   }
 
   .footer-padding {
@@ -658,6 +670,7 @@ footer .block-label {
   footer .block-label {
     text-align: center;
     margin-top: 22px;
+    margin-left: 0;
   }
 
   .social-links {

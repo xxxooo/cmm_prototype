@@ -12,13 +12,18 @@ header.page .left-line {
 }
 
 header.page .brand-logo {
-  width: 100px;
-  margin-top: 6px;
+  width: 200px;
+  margin-top: 4px;
   position: relative;
 }
 
 header.page .logo-area {
   padding-top: 0;
+}
+
+header.page .logo-area .block {
+  width: 20px;
+  height: 20px;
 }
 
 header.page .nav-wrapper {
@@ -33,7 +38,12 @@ header.page .nav-wrapper ul.main-menu li {
 header.page .nav-wrapper ul.main-menu li a.wline {
   font-size: 16px;
   line-height: 18px;
-  padding: 14px 15px;
+  padding: 4px 15px;
+}
+
+.nav-wrapper .main-menu .wline span {
+  display: block;
+  height: 18px;
 }
 
 header.page .nav-wrapper ul.main-menu {
@@ -48,7 +58,7 @@ header.page .nav-wrapper ul.main-menu .polyline-end {
   width: 30px;
   height: 22px;
   position: absolute;;
-  top: 59px;
+  top: 38px;
   right: -25px;
 }
 
