@@ -1,0 +1,91 @@
+//- declaration
+//- carousel輪播的分頁項目
+mixin carousel_slide(slide_data)
+  .carousel-item.white-text(style="background-image:url('" + slide_data.photo + "')")
+    .carousel-teaser-wrapper
+      h4
+        a(href=slide_data.link)= slide_data.title
+      h6= slide_data.lead
+
+mixin main_menu_term(term_data)
+  li
+    a.wline(href=term_data.link)
+      span= term_data.name
+      span.font-optima= term_data.eng
+
+mixin side_menu_term(term_data)
+  li
+    a(href=term_data.link)
+      span= term_data.name
+      span.font-optima= term_data.eng
+
+
+//- in use
+header.triback00
+  .main-container
+    .logo-area
+      a.brand-logo(href='#')
+        img(src='../assets/cmm_img/cmm_logo05.svg')
+      .block.hide-on-med-and-down
+        .icon-slash
+      a.block.hide-on-med-and-down(href='#')
+        i.icons.social-user
+      a.block.hide-on-med-and-down(href='#')
+        i.icons.social-search
+
+    .carousel-wrapper
+      #main-carousel.carousel.carousel-slider.center(data-indicators='true')
+        each term in carousel_slides_data
+          +carousel_slide(term)
+        a#carousel-prev.left.carousel-control
+          i.material-icons.medium navigate_before
+          span.sr-only Previous
+        a#carousel-next.right.carousel-control
+          i.material-icons.medium navigate_next
+          span.sr-only Next
+
+    a.button-collapse-mid(href='#', data-activates='mobile-slide-out')
+      i.material-icons.small menu
+    ul#mobile-slide-out.side-nav
+      li
+        a.brand-logo(href='#')
+          img(src='../assets/cmm_img/cmm_logo04.svg')
+      li
+        a.block(href='#')
+          i.material-icons.small person_outline
+          | 會員登入
+      li
+        a.block(href='#')
+          i.material-icons.small search
+          | 搜尋
+      li.divider
+      each category in categories_data
+        +side_menu_term(category)
+
+    nav#nav.white.z-depth-0.hide-on-med-and-down
+      .nav-wrapper
+        ul#nav-mobile.main-menu
+          each category in categories_data
+            +main_menu_term(category)
+
+  header.page.hide-on-med-and-down
+    nav#nav-wtf.z-depth-0
+      .left-line
+      .nav-wrapper
+        .logo-area
+          a.brand-logo(href='#')
+            img.responsive-img(src='../assets/cmm_img/cmm_logo05.svg')
+          .block
+            .icon-slash
+          a.block(href='#')
+            i.icons.social-user
+          a.block(href='#')
+            i.icons.social-search
+
+        ul#nav-mobile.main-menu
+          li.placeholder
+
+          each category in categories_data
+            +main_menu_term(category)
+
+          li.polyline-end

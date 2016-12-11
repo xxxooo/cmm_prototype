@@ -1,0 +1,17 @@
+extends ./templates/layout.pug
+
+block styles_and_scripts
+  include ./templates/styles_and_scripts.pug
+  link(rel="stylesheet", href="css/style_a4.css")
+  link(rel="stylesheet", href="css/page00.css")
+
+block bottom_scripts
+  script(src="js/index_a4.js")
+
+block title
+  title CMM prototype A4
+
+block content
+  include ./templates/index_a4/header.pug
+  include ./templates/index_a4/main.pug
+  include ./templates/index_a4/footer.pug

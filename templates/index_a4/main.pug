@@ -1,0 +1,114 @@
+//- declaration
+//- carousel輪播的分頁項目
+mixin carousel_slide(slide_data)
+  .carousel-item.white-text(style="background-image:url('" + slide_data.photo + "')")
+    .carousel-teaser-wrapper
+      h4
+        a(href=slide_data.link)= slide_data.title
+      h6= slide_data.lead
+
+//- 最新文章卡片
+mixin news_card(card_data)
+  .col.m6.l4
+    .card.z-depth-0
+      .card-image
+        img(src=card_data.photo)
+      .card-content
+        .card-category
+          a.waves-effect.waves-light.btn.warm-grey.z-depth-0= card_data.category
+        h4.card-title
+          a(href=card_data.link)= card_data.title
+
+//- 首頁分類區塊 -> 主打文章 + 熱門列表
+mixin feature_category(head_data, cate_data)
+  .feature-cate.row
+    .col.s12.m7
+      +section_head(head_data)
+      .slider
+        ul.slides
+          li
+            img(src=cate_data.feature.photo)
+            .caption.left-align
+              h4= cate_data.feature.title
+    .col.s12.m5
+      .side-list-head.font-optima
+        .popular.warm-grey-text Most Popular
+        .read-more.warm-grey-text
+          a(href=head_data.link) read more...
+      //- 要讓過長的標題變成...結尾，使用overflow:hidden
+      //- 於是無法使用 ol 列出項目編號，只好自己用span加入項目編號
+      ul.side-list
+        each term, index in cate_data.list
+          +side_list_item(index+1, term)
+
+//- 首頁分類區塊 -> carousel輪播
+mixin carousel_catagory(head_data, list_data)
+  +section_head(head_data)
+
+  .carousel-wrapper
+    .carousel.carousel-slider.center(data-indicators='true')
+      each term in list_data
+        +carousel_slide(term)
+
+  .read-more.center.font-optima.warm-grey-text
+    a(href=head_data.link) read more...
+
+//- 區塊標題
+mixin section_head(head_data, class_name1, class_name2)
+  - class_name1 = 'tan'
+  - class_name2 = 'tan-liter'
+  - if(head_data == categories_data[0]) {class_name1 = "cc01" ; class_name2 = "cc01-liter"}
+  - if(head_data == categories_data[1]) {class_name1 = "cc02" ; class_name2 = "cc02-liter"}
+  - if(head_data == categories_data[2]) {class_name1 = "cc03" ; class_name2 = "cc03-liter"}
+  - if(head_data == categories_data[3]) {class_name1 = "cc04" ; class_name2 = "cc04-liter"}
+  - if(head_data == categories_data[4]) {class_name1 = "cc05" ; class_name2 = "cc05-liter"}
+
+  .section-head
+    .head-pattern
+      .head-circle(class=class_name2)
+        div(class=class_name1)
+      .v-line(class=class_name2)
+    h3
+      .backline.font-optima(class=class_name1+"-text")= head_data.eng
+      .h-line(class=class_name1)
+      a.warm-grey-text(href=head_data.link)= head_data.name
+
+//- 熱門文章列表
+mixin side_list_item(num, data)
+  li.list-item
+    a(href='#')
+      span.warm-grey-text= num
+      | #{data}
+
+
+//- start page with mixin
+//- 首頁內容開始
+section
+  .section-head
+    .head-pattern1
+      .head-circle.tan-liter
+        .tan
+      .v-line.tan-liter
+  .main-container.row.new-articles
+    each term in news_cards_data
+      +news_card(term)
+
+section.triback01
+  .main-container
+    +feature_category(categories_data[0], feature_category01_data)
+
+section.triback02
+  .main-container
+    +feature_category(categories_data[1], feature_category02_data)
+
+section.triback03
+  .main-container
+    +feature_category(categories_data[2], feature_category01_data)
+
+section.triback04
+  .main-container
+    +feature_category(categories_data[3], feature_category02_data)
+
+section.triback05
+  .main-container
+    +feature_category(categories_data[4], feature_category03_data)
